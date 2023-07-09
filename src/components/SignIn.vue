@@ -1,0 +1,61 @@
+<template>
+    <img src="../assets/download.png"/>
+    <h1> Sign In</h1>
+    <div class="register">
+        <input type="email" v-model="signInEmail" placeholder="Enter email" required/>
+        <input type="password" v-model="signInPassword" placeholder="Enter password" required/>
+        <button @click="signIn">Sign In</button>
+        <button v-on:click="NewRegister"> Register Now </button>
+    </div>
+ </template>
+ <script>
+ import axios from 'axios'
+export default{
+    name:'SignIn',
+    data() {
+  return {
+    signInEmail: '',
+    signInPassword: '',
+  };
+},
+methods: {
+    async NewRegister(){
+        this.$router.push({name:'Register'})
+    },
+    
+    async signIn() {
+        if (!this.signInEmail || !this.signInPassword) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+        
+        let  response = await axios.get(`http://localhost:3000/users?email=${this.signInEmail}&password=${this.signInPassword}`);
+        if (response.status==200 && response.data.length>0){
+        localStorage.setItem("user-info",JSON.stringify(response.data[0]))
+        this.$router.push({name:'HomePage'})
+    } else{
+        alert('Invalid Username or Password!')
+    }
+        console.warn(response)
+    },
+},
+}
+
+
+
+</script>
+<style>
+.register input{
+    display: block;
+    width: 450px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.register button {
+    width: 150px;
+    height: 45px;
+    background-color: skyblue;
+    cursor: pointer;
+}
+</style>

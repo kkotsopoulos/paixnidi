@@ -1,13 +1,16 @@
- <template>
-    <img src="../assets/download.png"/>
-    <h1> Register</h1>
-    <form ref="registerForm" @submit.prevent="NewRegister"></form>
-    <div class="register">
-        <input type="email" v-model="email" placeholder="Enter email" required  />
-        <input type="password" v-model="password" placeholder="Enter password" required  />
-        <button v-on:click="NewRegister"> Register </button>
-    </div>
- </template>
+<template>
+    <img src="../assets/download.png" />
+    <h1 class="text-4xl font-bold mb-4">Register</h1>
+    <form ref="registerForm" @submit.prevent="NewRegister">
+      <div class="register">
+        <input type="email" v-model="email" placeholder="Enter email" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
+        <input type="password" v-model="password" placeholder="Enter password" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
+        <button @click="NewRegister" class="w-full h-12 bg-blue-500 text-white font-bold hover:bg-blue-700">
+          Register
+        </button>
+      </div>
+    </form>
+  </template>
  <script>
  import axios from 'axios'
 export default{
@@ -59,5 +62,8 @@ export default{
     height: 45px;
     background-color: skyblue;
     cursor: pointer;
+}
+.register button:hover {
+  background-color: #1c3d7d;
 }
 </style>

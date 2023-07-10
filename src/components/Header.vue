@@ -1,8 +1,8 @@
 <template>
-    <div class="head">
-    <a v-on:click="HomePage" href="#">Home          </a>
-    <a v-on:click="LiveDraw" href="#">Live Draw        </a>
-    <a v-on:click="logout" href="#">Logout       </a>
+    <div class="head bg-beige overflow-hidden">
+        <a @click="HomePage" href="#" class="head-link">Home</a>
+    <a @click="LiveDraw" href="#" class="head-link">Live Draw</a>
+    <a @click="logout" href="#" class="head-link">Logout</a>
     </div>
 </template>
 <script>
@@ -31,13 +31,13 @@ export default {
     padding: 16px;
    
 }
-.head a{
-    padding: 16px 14px;
-    text-align: center;
-    float: left;
-    color: black;
-    font-size: 25px;
-    text-decoration: none;
+.head a.head-link {
+  padding: 10px;
+  margin-right: 10px;
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+  float: left;
 }
 
 </style>

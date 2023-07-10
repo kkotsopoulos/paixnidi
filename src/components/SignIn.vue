@@ -1,13 +1,20 @@
 <template>
-    <img src="../assets/download.png"/>
-    <h1> Sign In</h1>
-    <div class="register">
-        <input type="email" v-model="signInEmail" placeholder="Enter email" required/>
-        <input type="password" v-model="signInPassword" placeholder="Enter password" required/>
-        <button @click="signIn">Sign In</button>
-        <button v-on:click="NewRegister"> Register Now </button>
+    <div>
+      <img src="../assets/download.png" />
+      <h1 class="text-2xl font-bold">Sign In</h1>
+      <div class="register">
+        <input type="email" v-model="signInEmail" placeholder="Enter email" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
+        <input type="password" v-model="signInPassword" placeholder="Enter password" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
+        <button @click="signIn" class="w-full h-12 bg-blue-500 text-white font-bold hover:bg-blue-700">
+          Sign In
+        </button>
+        <button v-on:click="NewRegister" class="w-full h-12 bg-gray-300 text-gray-700 font-bold hover:bg-gray-400">
+          Register Now
+        </button>
+      </div>
     </div>
- </template>
+  </template>
+  
  <script>
  import axios from 'axios'
 export default{
@@ -57,5 +64,12 @@ methods: {
     height: 45px;
     background-color: skyblue;
     cursor: pointer;
+}
+.register button:hover {
+  background-color: blue;
+}
+.register {
+  max-width: 450px;
+  margin: 0 auto;
 }
 </style>

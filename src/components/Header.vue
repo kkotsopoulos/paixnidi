@@ -1,10 +1,10 @@
 <template>
-    <div class="head bg-beige overflow-hidden">
-        <a @click="HomePage" href="#" class="head-link">Home</a>
-    <a @click="LiveDraw" href="#" class="head-link">Live Draw</a>
-    <a @click="logout" href="#" class="head-link">Logout</a>
+    <div class="head bg-beige overflow-hidden p-4">
+      <a @click="HomePage" href="#" class="head-link px-4 py-2 mr-4 text-black text-2xl no-underline">Home</a>
+      <a @click="LiveDraw" href="#" class="head-link px-4 py-2 mr-4 text-black text-2xl no-underline">Live Draw</a>
+      <a @click="logout" href="#" class="head-link px-4 py-2 mr-4 text-black text-2xl no-underline">Logout</a>
     </div>
-</template>
+  </template>
 <script>
 export default {
     name: 'HeaderPage',

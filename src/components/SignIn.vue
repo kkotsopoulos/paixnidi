@@ -51,25 +51,3 @@ methods: {
 
 
 </script>
-<style>
-.register input{
-    display: block;
-    width: 450px;
-    height: 45px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.register button {
-    width: 150px;
-    height: 45px;
-    background-color: skyblue;
-    cursor: pointer;
-}
-.register button:hover {
-  background-color: blue;
-}
-.register {
-  max-width: 450px;
-  margin: 0 auto;
-}
-</style>

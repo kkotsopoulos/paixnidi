@@ -1,15 +1,15 @@
 <template>
+    <div>
     <img src="../assets/download.png" />
     <h1 class="text-4xl font-bold mb-4">Register</h1>
-    <form ref="registerForm" @submit.prevent="NewRegister">
       <div class="register">
-        <input type="email" v-model="email" placeholder="Enter email" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
+        <input type="text" v-model="email" placeholder="Enter email" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
         <input type="password" v-model="password" placeholder="Enter password" required class="w-full h-12 p-2 mb-4 border border-gray-300" />
         <button @click="NewRegister" class="w-full h-12 bg-blue-500 text-white font-bold hover:bg-blue-700">
           Register
         </button>
       </div>
-    </form>
+    </div>
   </template>
  <script>
  import axios from 'axios'
@@ -33,7 +33,7 @@ export default{
         email: this.email,
         password: this.password
     });
-    console.warn(result);
+   
     if (result.status==201){
         alert("Register Succesful");
         localStorage.setItem("user-info",JSON.stringify(result.data))

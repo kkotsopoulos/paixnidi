@@ -1,23 +1,25 @@
 <template>
-  <HeaderPage />
-    <div class="number-selection">
-    <div class="numbers">
-    <h2>Select 5 Numbers:</h2>
-    <div v-for="number in availableNumbers" :key="number" class="number-item">
-    <button @click="selectNumber(number)">{{ number }}</button>
+  <div>
+    <HeaderPage />
+    <div class="number-selection flex justify-between mt-20">
+      <div class="numbers w-1/2 pr-4">
+        <h2 class="mb-4">Select 5 Numbers:</h2>
+        <div v-for="number in availableNumbers" :key="number" class="number-item mb-4">
+          <button @click="selectNumber(number)" class="px-4 py-2">{{ number }}</button>
+        </div>
+      </div>
+
+      <div class="selected-numbers w-1/2 pl-4">
+        <h2 class="mb-4">Selected Numbers:</h2>
+        <div v-for="number in selectedNumbers" :key="number" class="selected-number-item mb-4">
+          <span>{{ number }}</span>
+          <button @click="removeSelectedNumber(number)" class="px-4 py-2">&times;</button>
+        </div>
+        <button @click="submitBet" :disabled="selectedNumbers.length !== 5" class="px-4 py-2" :class="{ 'opacity-60 cursor-not-allowed': selectedNumbers.length !== 5 }">Submit Bet</button>
+      </div>
     </div>
-    </div>
-  
-    <div class="selected-numbers">
-    <h2>Selected Numbers:</h2>
-    <div v-for="number in selectedNumbers" :key="number" class="selected-number-item">
-    <span>{{ number }}</span>
-    <button @click="removeSelectedNumber(number)">&times;</button>
-    </div>
-    <button @click="submitBet" :disabled="selectedNumbers.length !== 5">Submit Bet</button>
-    </div>
-    </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import HeaderPage from './Header.vue'
@@ -47,11 +49,10 @@
       submitBet() {
         if (this.selectedNumbers.length === 5) {
           this.$router.push({ name: 'DrawPage' });
-          this.$router.push({ name: 'DrawPage', query: { playerBet: this.selectedNumbers.join(',') } });
+      
         }
       },
     },
-    
   };
   </script>
   

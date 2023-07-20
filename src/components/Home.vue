@@ -48,7 +48,8 @@
       },
       submitBet() {
         if (this.selectedNumbers.length === 5) {
-          this.$router.push({ name: 'DrawPage' });
+          const selectedNumbersString = this.selectedNumbers.join(',');
+    this.$router.push({ name: 'DrawPage', query: { playerBet: selectedNumbersString } });
       
         }
       },

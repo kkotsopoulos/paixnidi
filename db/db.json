@@ -64,6 +64,11 @@
       "email": "test",
       "password": "test",
       "id": 13
+    },
+    {
+      "email": "test",
+      "password": "123",
+      "id": 14
     }
   ],
   "draw-history": [

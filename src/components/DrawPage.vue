@@ -7,7 +7,7 @@
           <h2>Draw Numbers:</h2>
           <div v-for="number in drawNumbers" :key="number" class="draw-number-item">{{ number }}</div>
         </div>
-  
+
         <div class="player-bet">
           <h2>Player Bet:</h2>
           <div v-for="(number, index) in playerBet" :key="index" class="draw-number-item" :class="{ highlighted: isMatchingNumber(number) }">{{ number }}</div>
@@ -150,11 +150,12 @@ isMatchingNumber(number) {
     width: 48%;
   }
   
+  
   .draw-number-item {
     display: inline-block;
     margin: 5px;
     padding: 10px;
-    border: 1px solid #ccce;
+    border: 1px solid #ccc;
   }
   
   .player-bet .highlighted {
